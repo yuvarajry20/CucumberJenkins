@@ -6,23 +6,51 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 
 import io.cucumber.java.After;
+import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
+import io.cucumber.java.BeforeStep;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class SaucedemoLoginStep {
 	WebDriver driver;
-	@Before
+	@Before("@chrome")
 	public void setup() {
-		System.out.println("---------------Before Executing---------------");
+//		System.out.println("---------------Before Executing---------------");
 		driver=new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
+	@Before("@firefox")
+	public void setup1() {
+//		System.out.println("---------------Before Executing---------------");
+		driver=new FirefoxDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	}
+	@Before("@edge")
+	public void setup2() {
+//		System.out.println("---------------Before Executing---------------");
+		driver=new EdgeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	}
+	
+//	@BeforeStep
+//	public void beforestep() {
+//		System.out.println("---------------Before Step---------------");
+//	}
+//	
+//	@AfterStep
+//	public void afterstep() {
+//		System.out.println("---------------After Step---------------");
+//	}
 	
 		@Given("I am in the suacedemo website")
 		public void i_am_in_the_suacedemo_website() {
@@ -116,7 +144,7 @@ public class SaucedemoLoginStep {
 		
 		@After
 		public void teardown() {
-			System.out.println("---------------After Executed---------------");
+//			System.out.println("---------------After Executed---------------");
 			driver.quit();
 		}
 }

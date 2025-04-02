@@ -20,7 +20,7 @@
 Feature: Login Feature
   I want to use my feature file for testing saucedemo application
 
-  @ValidCredentials
+  @chrome
   Scenario: Login feature with valid credentials
     Given I am in the suacedemo website
     Then I provide valid username
@@ -28,7 +28,7 @@ Feature: Login Feature
     When I click Login
     Then I can see product page
 
-  @InvalidCredentials(username)
+  @firefox
   Scenario: Login feature with Invalid credentials
      Given I am in the suacedemo website
     Then I provide Invalid username
@@ -36,7 +36,7 @@ Feature: Login Feature
     When I click Login
     Then I can see Error message
     
-    @InvalidCredentials(password)
+    @edge
   Scenario: Login feature with Invalid credentials
      Given I am in the suacedemo website
     Then I provide valid username
@@ -44,7 +44,7 @@ Feature: Login Feature
     When I click Login
     Then I can see Error message
     
-    @InvalidCredentials(no-username)
+    @chrome
   Scenario: Login feature with Invalid credentials
      Given I am in the suacedemo website
      Then I provide no username
@@ -52,7 +52,7 @@ Feature: Login Feature
     When I click Login
     Then I can see empty username Error message
     
-    @InvalidCredentials(no-password)
+    @firefox
   Scenario: Login feature with Invalid credentials
      Given I am in the suacedemo website
     Then I provide valid username
