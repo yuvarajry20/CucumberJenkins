@@ -8,18 +8,27 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class SaucedemoLoginStep {
-	WebDriver driver=new ChromeDriver();
+	WebDriver driver;
+	@Before
+	public void setup() {
+		System.out.println("---------------Before Executing---------------");
+		driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	}
+	
 		@Given("I am in the suacedemo website")
 		public void i_am_in_the_suacedemo_website() {
 		    // Write code here that turns the phrase above into concrete actions
 			driver.get("https://www.saucedemo.com/");
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+			
 			
 		}
 
@@ -104,10 +113,10 @@ public class SaucedemoLoginStep {
 		    String expected=error.getText();
 		    Assert.assertEquals(actual, expected);
 		}
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
+		
+		@After
+		public void teardown() {
+			System.out.println("---------------After Executed---------------");
+			driver.quit();
+		}
 }
