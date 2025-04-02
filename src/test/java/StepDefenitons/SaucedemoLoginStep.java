@@ -35,15 +35,15 @@ public class SaucedemoLoginStep {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
-	@Before("@edge")
-	public void setup2() {
-//		System.out.println("---------------Before Executing---------------");
-		EdgeOptions opt=new EdgeOptions();
-		opt.addArguments("--headless");
-		driver=new EdgeDriver(opt);
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	}
+//	@Before("@edge")
+//	public void setup2() {
+////		System.out.println("---------------Before Executing---------------");
+//		EdgeOptions opt=new EdgeOptions();
+//		opt.addArguments("--headless");
+//		driver=new EdgeDriver(opt);
+//		driver.manage().window().maximize();
+//		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//	}
 	
 //	@BeforeStep
 //	public void beforestep() {

@@ -36,7 +36,7 @@ Feature: Login Feature
     When I click Login
     Then I can see Error message
     
-    @edge
+    @chrome
   Scenario: Login feature with Invalid credentials
      Given I am in the suacedemo website
     Then I provide valid username
