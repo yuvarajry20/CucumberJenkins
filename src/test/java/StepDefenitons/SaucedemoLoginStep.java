@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 
@@ -37,7 +38,9 @@ public class SaucedemoLoginStep {
 	@Before("@edge")
 	public void setup2() {
 //		System.out.println("---------------Before Executing---------------");
-		driver=new EdgeDriver();
+		EdgeOptions opt=new EdgeOptions();
+		opt.addArguments("--headless");
+		driver=new EdgeDriver(opt);
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
