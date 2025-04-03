@@ -20,6 +20,8 @@ public class OrangeHRMStep {
 	public void i_am_in_the_orange_hrm_website() {
 	    // Write code here that turns the phrase above into concrete actions
 //		driver=new ChromeDriver();
+//		driver=new EdgeDriver();
+		System.setProperty("webdriver.edge.driver", "\"C:\\Users\\yuvar\\Downloads\\edgedriver_win64\\msedgedriver.exe\"");
 		driver=new EdgeDriver();
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 	    driver.manage().window().maximize();
