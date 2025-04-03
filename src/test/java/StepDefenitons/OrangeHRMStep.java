@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
 import org.testng.Assert;
 
 import io.cucumber.java.en.Given;
@@ -19,10 +18,7 @@ public class OrangeHRMStep {
 	@Given("I am in the OrangeHRM website")
 	public void i_am_in_the_orange_hrm_website() {
 	    // Write code here that turns the phrase above into concrete actions
-//		driver=new ChromeDriver();
-//		driver=new EdgeDriver();
-		System.setProperty("webdriver.edge.driver", "\"C:\\Users\\yuvar\\Downloads\\edgedriver_win64\\msedgedriver.exe\"");
-		driver=new EdgeDriver();
+		driver=new ChromeDriver();
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 	    driver.manage().window().maximize();
 	    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
