@@ -41,18 +41,33 @@ public class DataTableStep {
 	    System.out.println("Credentials Entered");
 //	    List<List<String>> signUpForm=dataTable.asLists(String.class);
 	    List<Map<String, String>> user=dataTable.asMaps(String.class, String.class);
+	    for(Map<String, String> form:user) {
+	    	 String Username=form.get("Username");
+	 	    System.out.println("Username: "+Username);
+	 	    driver.findElement(By.name("username")).sendKeys(Username);
+	 	    
+	 	    String Password=form.get("Password");
+		    driver.findElement(By.name("password")).sendKeys(Password);
+		    
+		    driver.findElement(By.xpath("//button[@class=\"oxd-button oxd-button--medium oxd-button--main orangehrm-login-button\"]")).submit();
+		    
+		    String erroMessage=user.get(0).get("ErrorMessage");
+		    String actualErrorMessage=driver.findElement(By.xpath("//*[@class='orangehrm-login-error']/div[1]/div[1]/p")).getText();
+		    System.out.println("Actual Error Message:"+actualErrorMessage);
+		    Assert.assertTrue(actualErrorMessage.equalsIgnoreCase(erroMessage));
+	    }
 //	    String Username=signUpForm.get(0).get(0);
 //	    String Password=signUpForm.get(0).get(1);
-	    String Username=user.get(0).get("Username");
-	    System.out.println("Username: "+Username);
-	    driver.findElement(By.name("username")).sendKeys(Username);
-	    String Password=user.get(0).get("Password");
-	    driver.findElement(By.name("password")).sendKeys(Password);
-	    driver.findElement(By.xpath("//button[@class=\"oxd-button oxd-button--medium oxd-button--main orangehrm-login-button\"]")).submit();
-	    String erroMessage=user.get(0).get("ErrorMessage");
-	    String actualErrorMessage=driver.findElement(By.xpath("//*[@class='orangehrm-login-error']/div[1]/div[1]/p")).getText();
-	    System.out.println("Actual Error Message:"+actualErrorMessage);
-	    Assert.assertTrue(actualErrorMessage.equalsIgnoreCase(erroMessage));
+//	    String Username=user.get(0).get("Username");
+//	    System.out.println("Username: "+Username);
+//	    driver.findElement(By.name("username")).sendKeys(Username);
+//	    String Password=user.get(0).get("Password");
+//	    driver.findElement(By.name("password")).sendKeys(Password);
+//	    driver.findElement(By.xpath("//button[@class=\"oxd-button oxd-button--medium oxd-button--main orangehrm-login-button\"]")).submit();
+//	    String erroMessage=user.get(0).get("ErrorMessage");
+//	    String actualErrorMessage=driver.findElement(By.xpath("//*[@class='orangehrm-login-error']/div[1]/div[1]/p")).getText();
+//	    System.out.println("Actual Error Message:"+actualErrorMessage);
+//	    Assert.assertTrue(actualErrorMessage.equalsIgnoreCase(erroMessage));
 	}
 
 //	@Then("User should be able to login successfully and new page open")

@@ -24,6 +24,9 @@ Feature: Login to HRM application
     Given user is on HRMLogin page
     When User enters valid credentials
     #|Admin|admin123|
+    #|Username|Password|ErrorMessage|
+    #|Admin11|adfaf|Invalid credentials|
     |Username|Password|ErrorMessage|
     |Admin11|adfaf|Invalid credentials|
+    |dsjfsio|fnakjn|Invalid credentials|
     #Then User should be able to login successfully and new page open
